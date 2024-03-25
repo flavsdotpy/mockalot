@@ -1,6 +1,7 @@
 # sampy
 
-Sample data generator library.
+> :warning: **Work in progress**: Be very careful here!
+Sample data generator library.  \
 The motivation to create this project was the high number of limitations for similar web apps in the free tier. This is easy to run locally, at Jupyter or even have it as a library for other projects.
 
 # Features
