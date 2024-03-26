@@ -2,6 +2,7 @@ import csv
 import json
 import pathlib
 
+from sampy.config import Defaults
 from sampy.log import get_logger
 
 
@@ -9,7 +10,7 @@ class BaseWriter:
 
     _EXTENSION = ""
 
-    def __init__(self, output_path: str, output_filename: str):
+    def __init__(self, output_filename: str = Defaults.OUTPUT_FILENAME, output_path: str = Defaults.OUTPUT_PATH):
         self.output_file = f"{output_path}/{output_filename}.{self._EXTENSION}"
 
     def _prepare_path(self, ):
@@ -47,6 +48,7 @@ class JsonWriter(BaseWriter):
             if self.jsonlines:
                 for row in data:
                     fout.write(json.dumps(row))
+                    fout.write("\n")
             else:
                 fout.write(json.dumps(data))
 

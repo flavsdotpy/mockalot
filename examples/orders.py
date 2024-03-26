@@ -1,7 +1,6 @@
 from datetime import date
 
 from sampy import Sampy
-from sampy.config import Defaults
 from sampy.generators import FloatGenerator, EmailGenerator, DateGenerator, UUIDGenerator, \
                              NameGenerator, PickFromListGenerator, CityGenerator, CountryGenerator, \
                              PhoneNumberGenerator
@@ -14,7 +13,7 @@ def main():
 
     get_logger().info("Building customers...")
     customers_generator = Sampy() \
-        .set_writer(JsonWriter, {"output_path": Defaults.OUTPUT_PATH, "output_filename": "customers"}) \
+        .set_writer(JsonWriter, {"output_filename": "customers"}) \
         .set_config("sample_size", 2000) \
         .add_column("id", UUIDGenerator, {}) \
         .add_column("name", NameGenerator, {}) \
@@ -26,7 +25,7 @@ def main():
 
     get_logger().info("Building stores...")
     stores_generator = Sampy() \
-        .set_writer(JsonWriter, {"output_path": Defaults.OUTPUT_PATH, "output_filename": "stores"}) \
+        .set_writer(JsonWriter, {"output_filename": "stores"}) \
         .set_config("sample_size", 200) \
         .add_column("id", UUIDGenerator, {}) \
         .add_column("city", CityGenerator, {}) \
@@ -40,7 +39,7 @@ def main():
 
     get_logger().info("Building orders...")
     orders_generator = Sampy() \
-        .set_writer(CSVWriter, {"output_path": Defaults.OUTPUT_PATH, "output_filename": "orders"}) \
+        .set_writer(CSVWriter, {"output_filename": "orders"}) \
         .set_config("sample_size", 100000) \
         .add_column("order_id", UUIDGenerator, {}) \
         .add_column("customer_id", PickFromListGenerator, {"elements": customers_ids}) \

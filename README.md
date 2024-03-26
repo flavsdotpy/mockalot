@@ -16,6 +16,10 @@ This is a library to help with sample data generation in a number of different w
 
 There are usage examples [here](./examples/).
 
+# Roadmap
+
+You can see the project's roadmap [here](https://github.com/flavsdotpy/sampy/issues).
+
 # Author
 
 * **[flavsdotpy](https://github.com/flavsdotpy)**
