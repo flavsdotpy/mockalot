@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "sampy"
-version = "0.1.0"
+version = "0.1.1"
 description = "Sample data generator library."
 authors = ["Flávio Teixeira <flavio.mtps@gmail.com>"]
 license = "MIT"
