@@ -1,7 +1,7 @@
 from typing import Any, Type
 
 from sampy.config import Defaults
-from sampy.generators import BaseGenerator
+from sampy.generators import Generator
 from sampy.log import get_logger
 from sampy.writers import BaseWriter
 
@@ -29,7 +29,7 @@ class Sampy:
         self.config.update(configs)
         return self
 
-    def add_column(self, column_name: str, generator: BaseGenerator, parameters: dict):
+    def set_column(self, column_name: str, generator: Generator, parameters: dict):
         if column_name in self.generators:
             raise Exception(f"Column {column_name} already exists!")
         self.generators[column_name] = {
@@ -38,7 +38,7 @@ class Sampy:
         }
         return self
 
-    def add_columns(self, *columns):
+    def set_columns(self, *columns):
         self.generators.update({
             col["name"]: {
                 "class": col["generator"],

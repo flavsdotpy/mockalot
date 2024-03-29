@@ -15,9 +15,9 @@ def main():
     customers_generator = Sampy() \
         .set_writer(JsonWriter, {"output_filename": "customers"}) \
         .set_config("sample_size", 2000) \
-        .add_column("id", UUIDGenerator, {}) \
-        .add_column("name", NameGenerator, {}) \
-        .add_column("email", EmailGenerator, {})
+        .set_column("id", UUIDGenerator, {}) \
+        .set_column("name", NameGenerator, {}) \
+        .set_column("email", EmailGenerator, {})
     customers_generator.validate()
     customers_generator.generate()
     customers_generator.write()
@@ -27,11 +27,11 @@ def main():
     stores_generator = Sampy() \
         .set_writer(JsonWriter, {"output_filename": "stores"}) \
         .set_config("sample_size", 200) \
-        .add_column("id", UUIDGenerator, {}) \
-        .add_column("city", CityGenerator, {}) \
-        .add_column("country", CountryGenerator, {}) \
-        .add_column("contact", PhoneNumberGenerator, {}) \
-        .add_column("manager", NameGenerator, {})
+        .set_column("id", UUIDGenerator, {}) \
+        .set_column("city", CityGenerator, {}) \
+        .set_column("country", CountryGenerator, {}) \
+        .set_column("contact", PhoneNumberGenerator, {}) \
+        .set_column("manager", NameGenerator, {})
     stores_generator.validate()
     stores_generator.generate()
     stores_generator.write()
@@ -41,11 +41,11 @@ def main():
     orders_generator = Sampy() \
         .set_writer(CSVWriter, {"output_filename": "orders"}) \
         .set_config("sample_size", 100000) \
-        .add_column("order_id", UUIDGenerator, {}) \
-        .add_column("customer_id", PickFromListGenerator, {"elements": customers_ids}) \
-        .add_column("store_id", PickFromListGenerator, {"elements": stores_ids}) \
-        .add_column("value", FloatGenerator, {"start": 1000, "end": 10000}) \
-        .add_column("date", DateGenerator, {"start": date(2023,1,1), "end": date(2023,12,31)})
+        .set_column("order_id", UUIDGenerator, {}) \
+        .set_column("customer_id", PickFromListGenerator, {"elements": customers_ids}) \
+        .set_column("store_id", PickFromListGenerator, {"elements": stores_ids}) \
+        .set_column("value", FloatGenerator, {"start": 1000, "end": 10000}) \
+        .set_column("date", DateGenerator, {"start": date(2023,1,1), "end": date(2023,12,31)})
     orders_generator.validate()
     orders_generator.generate()
     orders_generator.write()
