@@ -42,23 +42,20 @@ class JsonWriter(BaseWriter):
         super().__init__(**kwargs)
         self.jsonlines = jsonlines
 
+    def __write_json_doc(self, data: list[dict]):
+        with open(self.output_file, "w") as fout:
+            fout.write(json.dumps(data))
+
+    def __write_jsonlines(self, data: list[dict]):
+        with open(self.output_file, "w") as fout:
+            for row in data:
+                fout.write(json.dumps(row))
+                fout.write("\n")
+
     def write(self, data: list[dict]):
         self._prepare_path()
-        with open(self.output_file, "w") as fout:
-            if self.jsonlines:
-                for row in data:
-                    fout.write(json.dumps(row))
-                    fout.write("\n")
-            else:
-                fout.write(json.dumps(data))
+        if self.jsonlines:
+            self.__write_jsonlines(data)
+        else:
+            self.__write_json_doc(data)
 
-
-def get_writer_by_output_format(output_format):
-    writer = {
-        "csv": CSVWriter,
-        "json": JsonWriter
-    }.get(output_format)
-    if not writer:
-        raise Exception(f"Writer not found for format: {output_format}")
-    get_logger().info(f"Writer: {writer.__name__}")
-    return writer
