@@ -1,9 +1,21 @@
 name: Build
 on:
   push:
+    paths:
+      - .github/workflows/**
+      - mockalot/**
+      - tests/**
+      - pyproject.toml
+      - .coveragerc
     branches:
       - main
   pull_request:
+    paths:
+      - .github/workflows/**
+      - mockalot/**
+      - tests/**
+      - pyproject.toml
+      - .coveragerc
 jobs:
   tests-with-coverage:
     name: Tests and Coverage
