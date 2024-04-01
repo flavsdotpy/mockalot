@@ -1,6 +1,8 @@
 [run]
 omit =
     tests/*
+    sampy/generators/__init__.py
+    sampy/writers/__init__.py
     sampy/config.py
     sampy/exceptions.py
     sampy/log.py

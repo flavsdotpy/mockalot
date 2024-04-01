@@ -1,10 +1,10 @@
 from typing import Any, Type
 
-from sampy.config import Defaults
-from sampy.exceptions import InvalidParameterException
-from sampy.generators import Generator
-from sampy.log import get_logger
-from sampy.writers import Writer
+from .config import Defaults
+from .exceptions import InvalidParameterException
+from .generators import Generator
+from .log import get_logger
+from .writers import Writer
 
 
 class Sampy:
