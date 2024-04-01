@@ -28,7 +28,7 @@ mocker.set_config("sample_size", 20000) \
       .set_column("id", UUIDGenerator, {}) \
       .set_column("name", NameGenerator, {}) \
       .set_column("email", EmailGenerator, {}) \
-      .set_writer(CSVWriterm, {"output_filename": "users"})
+      .set_writer(CSVWriter, {"output_filename": "users"})
 
 mocker.run()
 ```
