@@ -3,25 +3,28 @@ import json
 import pathlib
 
 from sampy.config import Defaults
+from sampy.exceptions import FunctionNotImplementedException
 from sampy.log import get_logger
 
 
-class BaseWriter:
+class Writer:
 
     _EXTENSION = ""
 
     def __init__(self, output_filename: str = Defaults.OUTPUT_FILENAME, output_path: str = Defaults.OUTPUT_PATH):
+        if type(self) == Writer:
+            raise TypeError("Cannot instantiate SuperClass directly")
         self.output_file = f"{output_path}/{output_filename}.{self._EXTENSION}"
 
     def _prepare_path(self, ):
         pathlib.Path(self.output_file).parent.mkdir(parents=True, exist_ok=True)
 
     def write(self, data: list[dict]):
-        raise Exception("Not yet implemented!")
+        raise FunctionNotImplementedException("Not yet implemented!")
 
 
 
-class CSVWriter(BaseWriter):
+class CSVWriter(Writer):
 
     _EXTENSION = "csv"
 
@@ -34,7 +37,7 @@ class CSVWriter(BaseWriter):
             writer.writerows(data)
 
 
-class JsonWriter(BaseWriter):
+class JsonWriter(Writer):
 
     _EXTENSION = "json"
 

@@ -1,8 +1,10 @@
 class FunctionNotImplementedException(Exception):
     pass
 
-class InvalidParametersException(Exception):
+
+class InvalidParameterException(Exception):
     pass
 
-class ParametersConflictException(Exception):
+
+class ParameterConflictException(Exception):
     pass

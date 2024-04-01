@@ -2,7 +2,7 @@ import re
 
 import pytest
 
-from sampy.exceptions import ParametersConflictException
+from sampy.exceptions import ParameterConflictException
 from sampy.generators import EmailGenerator
 
 
@@ -62,5 +62,5 @@ def test_generate_email_safe_domain(mocker):
 
 
 def test_validate_fail_multi_domains_set():
-    with pytest.raises(ParametersConflictException):
+    with pytest.raises(ParameterConflictException):
         EmailGenerator(safe_domain=True, public_domain=True)

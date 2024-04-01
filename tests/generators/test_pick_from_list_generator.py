@@ -1,6 +1,6 @@
 import pytest
 
-from sampy.exceptions import InvalidParametersException
+from sampy.exceptions import InvalidParameterException
 from sampy.generators import PickFromListGenerator
 
 
@@ -13,5 +13,5 @@ def test_pick_from_list():
 
 def test_validate_fail_empty_elements():
     elements = list()
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         PickFromListGenerator(elements=elements)

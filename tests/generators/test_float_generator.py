@@ -1,6 +1,6 @@
 import pytest
 
-from sampy.exceptions import InvalidParametersException
+from sampy.exceptions import InvalidParameterException
 from sampy.generators import FloatGenerator
 
 
@@ -30,19 +30,19 @@ def test_generate_float_max_set():
 def test_validate_fail_equal():
     test_min = 10.0
     test_max = 10.0
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         FloatGenerator(min=test_min, max=test_max)
 
 
 def test_validate_fail_greater():
     test_min = 10.0
     test_max = 1.0
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         FloatGenerator(min=test_min, max=test_max)
 
 
 def test_validate_fail_small_difference():
     test_min = 10.0
     test_max = 10.02
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         FloatGenerator(min=test_min, max=test_max)

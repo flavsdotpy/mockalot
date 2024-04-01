@@ -2,7 +2,7 @@ from datetime import date as _date
 
 import pytest
 
-from sampy.exceptions import InvalidParametersException
+from sampy.exceptions import InvalidParameterException
 from sampy.generators import DateGenerator
 
 
@@ -50,7 +50,7 @@ def test_validate_fail_equal():
     test_min_date = _date.fromisoformat("2024-01-01")
     test_max_date = _date.fromisoformat("2024-01-01")
 
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         DateGenerator(min=test_min_date, max=test_max_date)
 
 
@@ -58,5 +58,5 @@ def test_validate_fail_greater():
     test_min_date = _date.fromisoformat("2024-02-01")
     test_max_date = _date.fromisoformat("2024-01-01")
 
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         DateGenerator(min=test_min_date, max=test_max_date)

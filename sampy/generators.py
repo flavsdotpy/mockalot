@@ -7,11 +7,12 @@ from typing import Any
 from faker import Faker
 
 from sampy.config import TODAY, Defaults
-from sampy.exceptions import InvalidParametersException, FunctionNotImplementedException, ParametersConflictException
+from sampy.exceptions import InvalidParameterException, FunctionNotImplementedException, ParameterConflictException
 from sampy.log import get_logger
 
 
 class Generator:
+
     def __init__(self):
         if type(self) == Generator:
             raise TypeError("Cannot instantiate SuperClass directly")
@@ -42,9 +43,9 @@ class FloatGenerator(Generator):
 
     def validate(self):
         if self.min >= self.max:
-            raise InvalidParametersException("Min should be lower than max!")
+            raise InvalidParameterException("Min should be lower than max!")
         if (self.max - self.min) < .1:
-            raise InvalidParametersException("Difference between numbers must be at least 0.1")
+            raise InvalidParameterException("Difference between numbers must be at least 0.1")
 
     def generate(self):
         return round(random.uniform(self.min, self.max), self.decimal_places)
@@ -59,7 +60,7 @@ class IntegerGenerator(Generator):
 
     def validate(self):
         if self.min >= self.max:
-            raise InvalidParametersException("Min should be lower than max!")
+            raise InvalidParameterException("Min should be lower than max!")
 
     def generate(self):
         return random.randint(self.min, self.max)
@@ -79,7 +80,7 @@ class DateGenerator(Generator):
 
     def validate(self):
         if self.min >= self.max:
-            raise InvalidParametersException("Min date should be lower than max date")
+            raise InvalidParameterException("Min date should be lower than max date")
 
     def generate(self):
         time_diff = self.max - self.min
@@ -97,7 +98,7 @@ class NameGenerator(Generator):
 
     def validate(self):
         if self.last_name_only and self.first_name_only:
-            raise ParametersConflictException("Parameters are mutually exclusive")
+            raise ParameterConflictException("Parameters are mutually exclusive")
 
     def generate(self) -> str:
         if self.last_name_only:
@@ -121,7 +122,7 @@ class EmailGenerator(Generator):
 
     def validate(self):
         if self.safe_domain and self.public_domain:
-            raise ParametersConflictException("Domain parameters are mutually exclusive!")
+            raise ParameterConflictException("Domain parameters are mutually exclusive!")
 
     def generate(self):
         if self.anon_username:
@@ -147,7 +148,7 @@ class PickFromListGenerator(Generator):
 
     def validate(self):
         if len(self.elements) == 0:
-            raise InvalidParametersException("At least one element must be set!")
+            raise InvalidParameterException("At least one element must be set!")
 
     def generate(self):
         return random.choice(self.elements)

@@ -1,0 +1,9 @@
+[run]
+omit =
+    tests/*
+    sampy/config.py
+    sampy/exceptions.py
+    sampy/log.py
+
+[report]
+fail_under = 100

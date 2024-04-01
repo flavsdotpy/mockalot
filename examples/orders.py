@@ -18,9 +18,7 @@ def main():
         .set_column("id", UUIDGenerator, {}) \
         .set_column("name", NameGenerator, {}) \
         .set_column("email", EmailGenerator, {})
-    customers_generator.validate()
-    customers_generator.generate()
-    customers_generator.write()
+    customers_generator.run()
     customers_ids = [c["id"] for c in customers_generator.data]
 
     get_logger().info("Building stores...")
@@ -32,9 +30,7 @@ def main():
         .set_column("country", CountryGenerator, {}) \
         .set_column("contact", PhoneNumberGenerator, {}) \
         .set_column("manager", NameGenerator, {})
-    stores_generator.validate()
-    stores_generator.generate()
-    stores_generator.write()
+    stores_generator.run()
     stores_ids = [c["id"] for c in stores_generator.data]
 
     get_logger().info("Building orders...")
@@ -46,9 +42,7 @@ def main():
         .set_column("store_id", PickFromListGenerator, {"elements": stores_ids}) \
         .set_column("value", FloatGenerator, {"start": 1000, "end": 10000}) \
         .set_column("date", DateGenerator, {"start": date(2023,1,1), "end": date(2023,12,31)})
-    orders_generator.validate()
-    orders_generator.generate()
-    orders_generator.write()
+    orders_generator.run()
 
     get_logger().info("Finished processing...")
 

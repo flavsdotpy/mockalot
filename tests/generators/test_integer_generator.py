@@ -1,6 +1,6 @@
 import pytest
 
-from sampy.exceptions import InvalidParametersException
+from sampy.exceptions import InvalidParameterException
 from sampy.generators import IntegerGenerator
 
 
@@ -27,12 +27,12 @@ def test_generate_integer_max_set():
 def test_validate_fail_equal():
     test_min = 10
     test_max = 10
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         IntegerGenerator(min=test_min, max=test_max)
 
 
 def test_validate_fail_greater():
     test_min = 10
     test_max = 1
-    with pytest.raises(InvalidParametersException):
+    with pytest.raises(InvalidParameterException):
         IntegerGenerator(min=test_min, max=test_max)

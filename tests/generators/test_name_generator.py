@@ -1,6 +1,6 @@
 import pytest
 
-from sampy.exceptions import ParametersConflictException
+from sampy.exceptions import ParameterConflictException
 from sampy.generators import NameGenerator
 
 
@@ -41,5 +41,5 @@ def test_generate_name_last_only(mocker):
 
 
 def test_validate_fail_both_booleans_set():
-    with pytest.raises(ParametersConflictException):
+    with pytest.raises(ParameterConflictException):
         NameGenerator(first_name_only= True, last_name_only=True).generate()
