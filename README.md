@@ -17,7 +17,25 @@ This is a library to help with sample data generation in a number of different w
 
 # Usage
 
-There are usage examples [here](./examples/).
+```python
+from mockalot import Mockalot
+from mockalot.generators import EmailGenerator, UUIDGenerator, NameGenerator
+from mockalot.writers import CSVWriter
+
+mocker = Mockalot()
+
+mocker.set_config("sample_size", 20000) \
+      .set_column("id", UUIDGenerator, {}) \
+      .set_column("name", NameGenerator, {}) \
+      .set_column("email", EmailGenerator, {}) \
+      .set_writer(CSVWriterm, {"output_filename": "users"})
+
+mocker.run()
+```
+
+The snipped above will create a CSV file of 20k lines, consisted of 3 columns(id, name and email), written into `./output/users.csv`.
+
+There are more usage examples [here](./examples/).
 
 # Roadmap
 
