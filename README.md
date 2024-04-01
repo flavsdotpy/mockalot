@@ -1,5 +1,8 @@
 # sampy
 
+[![codecov](https://codecov.io/gh/flavsdotpy/sampy/master/graph/badge.svg?token=FMD26G97A7)](https://codecov.io/gh/flavsdotpy/sampy)
+![example workflow](https://github.com/flavsdotpy/sampy/actions/workflows/ci.yml/badge.svg)
+
 > :warning: **Work In Progress**: Library still in very early stages!
 
 Sample data generator library.  \
