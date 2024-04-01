@@ -1,7 +1,7 @@
 import pytest
 
-from sampy.exceptions import InvalidParameterException
-from sampy.generators import FloatGenerator
+from mockalot.exceptions import InvalidParameterException
+from mockalot.generators import FloatGenerator
 
 
 def test_generate_float():

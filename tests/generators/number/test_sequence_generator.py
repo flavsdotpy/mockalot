@@ -1,4 +1,4 @@
-from sampy.generators import SequenceGenerator
+from mockalot.generators import SequenceGenerator
 
 
 def test_generate_sequence():

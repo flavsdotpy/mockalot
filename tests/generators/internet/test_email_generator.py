@@ -2,8 +2,8 @@ import re
 
 import pytest
 
-from sampy.exceptions import ParameterConflictException
-from sampy.generators import EmailGenerator
+from mockalot.exceptions import ParameterConflictException
+from mockalot.generators import EmailGenerator
 
 
 def test_generate_email(mocker):

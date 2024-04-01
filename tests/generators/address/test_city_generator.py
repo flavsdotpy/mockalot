@@ -1,4 +1,4 @@
-from sampy.generators import CityGenerator
+from mockalot.generators import CityGenerator
 
 
 def test_generate_city(mocker):

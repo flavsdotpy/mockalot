@@ -1,11 +1,11 @@
 [run]
 omit =
     tests/*
-    sampy/generators/__init__.py
-    sampy/writers/__init__.py
-    sampy/config.py
-    sampy/exceptions.py
-    sampy/log.py
+    mockalot/generators/__init__.py
+    mockalot/writers/__init__.py
+    mockalot/config.py
+    mockalot/exceptions.py
+    mockalot/log.py
 
 [report]
 fail_under = 100

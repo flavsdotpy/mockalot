@@ -1,7 +1,7 @@
 import pytest
 
-from sampy.exceptions import InvalidParameterException
-from sampy.generators import PickFromListGenerator
+from mockalot.exceptions import InvalidParameterException
+from mockalot.generators import PickFromListGenerator
 
 
 def test_pick_from_list():

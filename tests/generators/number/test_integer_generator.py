@@ -1,7 +1,7 @@
 import pytest
 
-from sampy.exceptions import InvalidParameterException
-from sampy.generators import IntegerGenerator
+from mockalot.exceptions import InvalidParameterException
+from mockalot.generators import IntegerGenerator
 
 
 def test_generate_integer():

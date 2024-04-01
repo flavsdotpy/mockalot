@@ -1,18 +1,18 @@
 from datetime import date
 
-from sampy import Sampy
-from sampy.generators import FloatGenerator, EmailGenerator, DateGenerator, UUIDGenerator, \
+from mockalot import Mockalot
+from mockalot.generators import FloatGenerator, EmailGenerator, DateGenerator, UUIDGenerator, \
                              NameGenerator, PickFromListGenerator, CityGenerator, CountryGenerator, \
                              PhoneNumberGenerator
-from sampy.log import get_logger
-from sampy.writers import JsonWriter, CSVWriter
+from mockalot.log import get_logger
+from mockalot.writers import JsonWriter, CSVWriter
 
 
 def main():
     get_logger().info("Started processing...")
 
     get_logger().info("Building customers...")
-    customers_generator = Sampy() \
+    customers_generator = Mockalot() \
         .set_writer(JsonWriter, {"output_filename": "customers"}) \
         .set_config("sample_size", 2000) \
         .set_column("id", UUIDGenerator, {}) \
@@ -22,7 +22,7 @@ def main():
     customers_ids = [c["id"] for c in customers_generator.data]
 
     get_logger().info("Building stores...")
-    stores_generator = Sampy() \
+    stores_generator = Mockalot() \
         .set_writer(JsonWriter, {"output_filename": "stores"}) \
         .set_config("sample_size", 200) \
         .set_column("id", UUIDGenerator, {}) \
@@ -34,7 +34,7 @@ def main():
     stores_ids = [c["id"] for c in stores_generator.data]
 
     get_logger().info("Building orders...")
-    orders_generator = Sampy() \
+    orders_generator = Mockalot() \
         .set_writer(CSVWriter, {"output_filename": "orders"}) \
         .set_config("sample_size", 100000) \
         .set_column("order_id", UUIDGenerator, {}) \

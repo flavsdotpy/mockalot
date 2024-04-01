@@ -1,8 +1,8 @@
-# sampy usage example
+# mockalot usage example
 
 ## Requirements
 
-* Latest version of sampy installed
+* Latest version of mockalot installed
 
 ## Examples
 

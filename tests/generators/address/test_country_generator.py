@@ -1,6 +1,6 @@
 import re
 
-from sampy.generators import CountryGenerator
+from mockalot.generators import CountryGenerator
 
 
 def test_generate_country(mocker):

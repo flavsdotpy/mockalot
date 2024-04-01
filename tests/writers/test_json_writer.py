@@ -2,7 +2,7 @@ import json
 
 from unittest.mock import mock_open, call, patch
 
-from sampy.writers import JsonWriter
+from mockalot.writers import JsonWriter
 
 
 TEST_DATA = [

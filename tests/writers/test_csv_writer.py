@@ -2,7 +2,7 @@ import pytest
 
 from unittest.mock import mock_open, patch
 
-from sampy.writers import CSVWriter
+from mockalot.writers import CSVWriter
 
 
 TEST_DATA = [

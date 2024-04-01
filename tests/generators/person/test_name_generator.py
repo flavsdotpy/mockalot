@@ -1,7 +1,7 @@
 import pytest
 
-from sampy.exceptions import ParameterConflictException
-from sampy.generators import NameGenerator
+from mockalot.exceptions import ParameterConflictException
+from mockalot.generators import NameGenerator
 
 
 def test_generate_name_default(mocker):

@@ -1,4 +1,4 @@
-from sampy.generators import PhoneNumberGenerator
+from mockalot.generators import PhoneNumberGenerator
 
 
 def test_generate_phone_number(mocker):

@@ -7,7 +7,7 @@ from .log import get_logger
 from .writers import Writer
 
 
-class Sampy:
+class Mockalot:
 
     __DEFAULT_CONFIG = {
         "sample_size": Defaults.SAMPLE_SIZE

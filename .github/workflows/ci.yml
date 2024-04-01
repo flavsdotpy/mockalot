@@ -22,7 +22,7 @@ jobs:
       - name: Run poetry install
         run: poetry install
       - name: Run tests and collect coverage
-        run: poetry run pytest tests/ -v -s --cov=sampy --cov-report=xml --cov-config=.coveragerc
+        run: poetry run pytest tests/ -v -s --cov=mockalot --cov-report=xml --cov-config=.coveragerc
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4-beta
         with:

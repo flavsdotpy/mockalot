@@ -1,7 +1,7 @@
 import pytest
 
-from sampy.exceptions import FunctionNotImplementedException
-from sampy.generators import Generator
+from mockalot.exceptions import FunctionNotImplementedException
+from mockalot.generators import Generator
 
 
 def test_raise_exception_base_generator_instantiated():

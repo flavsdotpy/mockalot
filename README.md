@@ -1,7 +1,7 @@
-# sampy
+# mockalot
 
-[![codecov](https://codecov.io/gh/flavsdotpy/sampy/master/graph/badge.svg?token=FMD26G97A7)](https://codecov.io/gh/flavsdotpy/sampy)
-![example workflow](https://github.com/flavsdotpy/sampy/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/flavsdotpy/mockalot/master/graph/badge.svg?token=FMD26G97A7)](https://codecov.io/gh/flavsdotpy/mockalot)
+![example workflow](https://github.com/flavsdotpy/mockalot/actions/workflows/ci.yml/badge.svg)
 
 > :warning: **Work In Progress**: Library still in very early stages!
 
@@ -21,7 +21,7 @@ There are usage examples [here](./examples/).
 
 # Roadmap
 
-You can see the project's roadmap [here](https://github.com/flavsdotpy/sampy/issues).
+You can see the project's roadmap [here](https://github.com/flavsdotpy/mockalot/issues).
 
 # Author
 
@@ -29,4 +29,4 @@ You can see the project's roadmap [here](https://github.com/flavsdotpy/sampy/iss
 
 # License
 
-sampy is available under the MIT license. See the LICENSE file for more info.
+mockalot is available under the MIT license. See the LICENSE file for more info.

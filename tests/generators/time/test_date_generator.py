@@ -2,8 +2,8 @@ from datetime import date as _date
 
 import pytest
 
-from sampy.exceptions import InvalidParameterException
-from sampy.generators import DateGenerator
+from mockalot.exceptions import InvalidParameterException
+from mockalot.generators import DateGenerator
 
 
 def test_generate_date():
