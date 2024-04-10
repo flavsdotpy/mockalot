@@ -5,7 +5,7 @@ from mockalot import Mockalot
 from mockalot.config import Defaults
 from mockalot.exceptions import InvalidParameterException
 from mockalot.generators import IntegerGenerator, FloatGenerator
-from mockalot.writers import CSVWriter
+from mockalot.writers import CSVWriter, InMemoryWriter
 
 
 TEST_DATA = [
@@ -114,9 +114,6 @@ def test_run(mocker):
     generator_mock.generate.assert_has_calls([call() for _ in range(test_sample_size)])
     writer_mock.write.assert_called_once()
 
-    mockalot = Mockalot()
-    mockalot.data = TEST_DATA
-
 
 def test_run_multi_generator(mocker):
     mocker.patch('mockalot.get_logger')
@@ -141,5 +138,30 @@ def test_run_multi_generator(mocker):
     generator_b_mock.generate.assert_has_calls([call() for _ in range(test_sample_size)])
     writer_mock.write.assert_called_once()
 
+
+def test_run_in_memory_writer(mocker):
+    mocker.patch('mockalot.get_logger')
+
+    test_column_a = "test_a"
+    test_column_b = "test_b"
+    test_sample_size = 100
+    test_return_value = "This was mocked"
+
+    class InMemoryMock(MagicMock, InMemoryWriter):
+        def write(self, data):
+            return test_return_value
+
     mockalot = Mockalot()
-    mockalot.data = TEST_DATA
+    mockalot.set_config("sample_size", test_sample_size)
+    mockalot.set_column(test_column_a, MagicMock, {})
+    mockalot.set_column(test_column_b, MagicMock, {})
+    mockalot.set_writer(InMemoryMock, {})
+
+    returned_value = mockalot.run()
+
+    generator_a_mock = mockalot.get_column(test_column_a)
+    generator_b_mock = mockalot.get_column(test_column_b)
+
+    assert returned_value == test_return_value
+    generator_a_mock.generate.assert_has_calls([call() for _ in range(test_sample_size)])
+    generator_b_mock.generate.assert_has_calls([call() for _ in range(test_sample_size)])

@@ -1,5 +1,3 @@
-import pytest
-
 from unittest.mock import mock_open, patch
 
 from mockalot.writers import CSVWriter

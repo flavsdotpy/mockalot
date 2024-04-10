@@ -4,7 +4,7 @@ from .config import Defaults
 from .exceptions import InvalidParameterException
 from .generators import Generator
 from .log import get_logger
-from .writers import Writer
+from .writers import Writer, InMemoryWriter
 
 
 class Mockalot:
@@ -65,9 +65,10 @@ class Mockalot:
 
     def __write(self):
         get_logger().info("Writing data...")
-        get_logger().debug(f"Output file: {self.__writer.output_file}")
-        self.__writer.write(self.data)
+        return self.__writer.write(self.data)
 
     def run(self):
         self.__generate()
+        if isinstance(self.__writer, InMemoryWriter):
+            return self.__write()
         self.__write()

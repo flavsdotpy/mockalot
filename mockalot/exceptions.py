@@ -8,3 +8,7 @@ class InvalidParameterException(Exception):
 
 class ParameterConflictException(Exception):
     pass
+
+
+class DependencyNotAvailable(Exception):
+    pass
