@@ -1,1 +1,8 @@
 remote_theme: just-the-docs/just-the-docs
+aux_links:
+  "Mockalot on GitHub":
+    - "//github.com/flavsdotpy/mockalot"
+nav_external_links:
+  - title: Mockalot on GitHub
+    url: https://github.com/flavsdotpy/mockalot
+    opens_in_new_tab: true
