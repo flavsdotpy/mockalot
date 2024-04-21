@@ -5,8 +5,6 @@ description = "Mockup data generator library."
 authors = ["Flávio Teixeira <flavio.mtps@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-
-[tool.poetry]
 repository = https://github.com/flavsdotpy/mockalot
 
 [tool.poetry.documentation]
