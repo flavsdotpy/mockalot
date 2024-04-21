@@ -5,6 +5,8 @@ description = "Mockup data generator library."
 authors = ["Flávio Teixeira <flavio.mtps@gmail.com>"]
 license = "MIT"
 readme = "README.md"
+repository = "https://github.com/flavsdotpy/mockalot"
+documentation = "https://flavsdotpy.github.io/mockalot/"
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -17,8 +19,6 @@ pyarrow = {version = "^15.0.2", optional = true}
 pandas = ["pandas"]
 pyspark = ["pyspark"]
 parquet = ["pyarrow"]
-
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"

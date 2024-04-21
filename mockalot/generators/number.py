@@ -36,7 +36,7 @@ class FloatGenerator(Generator):
 
 class IntegerGenerator(Generator):
 
-    def __init__(self, min: int = 1, max: int = 10, **params) -> None:
+    def __init__(self, min: int = 1, max: int = 1000, **params) -> None:
         self.min = min
         self.max = max
         self.validate()
