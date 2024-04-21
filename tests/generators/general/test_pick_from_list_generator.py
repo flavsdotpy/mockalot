@@ -15,3 +15,8 @@ def test_validate_fail_empty_elements():
     elements = list()
     with pytest.raises(InvalidParameterException):
         PickFromListGenerator(elements=elements)
+
+def test_validate_fail_single_element():
+    elements = ["a"]
+    with pytest.raises(InvalidParameterException):
+        PickFromListGenerator(elements=elements)
