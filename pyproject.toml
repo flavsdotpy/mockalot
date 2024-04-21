@@ -6,9 +6,7 @@ authors = ["Flávio Teixeira <flavio.mtps@gmail.com>"]
 license = "MIT"
 readme = "README.md"
 repository = "https://github.com/flavsdotpy/mockalot"
-
-[tool.poetry.documentation]
-url = "https://flavsdotpy.github.io/mockalot/"
+documentation = "https://flavsdotpy.github.io/mockalot/"
 
 [tool.poetry.dependencies]
 python = "^3.10"
