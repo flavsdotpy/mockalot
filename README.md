@@ -4,7 +4,7 @@
 ![example workflow](https://github.com/flavsdotpy/mockalot/actions/workflows/ci.yml/badge.svg)
 
 Sample data generator library.  \
-The motivation to create this project was the high number of limitations for similar web apps in the free tier. This is easy to run locally, in a Jupyter notebook or even have it as a library for other projects.
+This is easy to run locally, in a Jupyter notebook or even have it as a library for other projects.
 
 ## Features
 
@@ -46,6 +46,10 @@ There are more usage examples [here](./examples/).
 ## Roadmap
 
 You can see the project's roadmap [here](https://github.com/flavsdotpy/mockalot/issues).
+
+## Considerations
+
+The motivation to create this project was the high number of limitations for similar web apps in the free tier. 
 
 ## Author
 
